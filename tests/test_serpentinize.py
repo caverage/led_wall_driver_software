@@ -1,11 +1,11 @@
-""" test frame.py"""
+""" test the _serpentinize method of LEDWall"""
 
 from contextlib import ExitStack as does_not_raise
 
 import numpy as np
 import pytest
 
-from led_wall_driver_software import frame
+import led_wall_driver_software
 
 RAW_FRAMES = [
     (
@@ -24,6 +24,6 @@ RAW_FRAMES = [
 @pytest.mark.parametrize("input_array,expected,raises", RAW_FRAMES)
 def test_serpentinize(input_array: np.ndarray, expected: np.ndarray, raises):
     with raises:
-        serpentinized = frame.serpentinize(input_array)
+        serpentinized = led_wall_driver_software.LEDWall._serpentinize(input_array)
         # https://stackoverflow.com/a/10580782
         assert np.array_equal(serpentinized, expected)
