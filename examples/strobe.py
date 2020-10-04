@@ -37,11 +37,8 @@ def main(led_wall_port: str, width: int, height: int, strobe_hz: int) -> None:
     while True:
         led_wall(black_frame)
         time.sleep(1 / strobe_hz)
-        print("a")
         led_wall(white_frame)
-        input()
         time.sleep(1 / strobe_hz)
-        print("b")
 
 
 if __name__ == "__main__":
