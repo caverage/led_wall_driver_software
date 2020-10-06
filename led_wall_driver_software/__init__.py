@@ -28,15 +28,15 @@ class LEDWall:
 
     # FIXME: https://github.com/ramonhagenaars/nptyping/issues/37
     def __call__(self, frame: NDArray[(Any, Any, 3), UInt8]) -> None:
-        if (
-            not frame.shape == (self.width, self.height, 3)
-            or not frame.dtype == np.uint8
-        ):
-            raise RuntimeError(
-                "Incorrect frame dimensions: Expected: "
-                f"({self.width}, {self.height}, 3) "
-                f"Got: {frame.shape}"
-            )
+        # if (
+        #     not frame.shape == (self.width, self.height, 3)
+        #     or not frame.dtype == np.uint8
+        # ):
+        #     raise RuntimeError(
+        #         "Incorrect frame dimensions: Expected: "
+        #         f"({self.width}, {self.height}, 3) "
+        #         f"Got: {frame.shape}"
+        #     )
 
         if self.serpentine:
             frame = self._serpentinize(frame)
